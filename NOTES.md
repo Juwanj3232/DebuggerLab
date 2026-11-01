@@ -34,6 +34,6 @@ What it really printed: "First down after 3 plays." and "Yards to go at the end:
 
 ## Bug 4 — countBigGames
 
-- **Where:**
-- **What the debugger showed:**
-- **The fix:**
+- **Where:** `countBigGames`, the `if (yards[i] > min)` line.
+- **What the debugger showed:** When `i` was 5, `yards[i]` was 20 and `min` was 20. The check `20 > 20` is false, so `count` did not go up. The comment above the method says "at least min yards", so a game with exactly 20 yards should count. `count` ended at 2 instead of 3.
+- **The fix:** I added a comment above the line saying what changed, and changed `>` to `>=`. Now `20 >= 20` is true, so `count` goes up and ends at 3.
