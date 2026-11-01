@@ -40,7 +40,8 @@ public class GameStats {
     public static int bestGame(int[] yards) {
         int best = 0;
         for (int i = 1; i < yards.length; i++) {
-            if (yards[i] > best) {
+            // Compare the current game's yards to the best game's yards, since best holds an index and not a yards value
+            if (yards[i] > yards[best]) {
                 best = i;
             }
         }

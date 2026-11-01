@@ -28,9 +28,9 @@ What it really printed: "First down after 3 plays." and "Yards to go at the end:
 
 ## Bug 3 — bestGame
 
-- **Where:**
-- **What the debugger showed:**
-- **The fix:**
+- **Where:** `bestGame`, the `if (yards[i] > best)` line.
+- **What the debugger showed:** `best` holds an index (a game number), but the `if` compared `yards[i]` (a number of yards) to `best`, so it was comparing yards to an index. Game 5 (index 4) has 67 yards, but at `i = 5` the check was `20 > 4`, which is true, so `best` ended up as 5 and it printed game 6.
+- **The fix:** I added a comment above the line saying what changed, and changed the condition to `yards[i] > yards[best]` so it compares yards to yards. `best = i` still saves the index. Now `best` ends at 4 and it prints game 5.
 
 ## Bug 4 — countBigGames
 
