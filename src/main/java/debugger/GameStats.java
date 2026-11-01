@@ -21,7 +21,7 @@ public class GameStats {
     /** Adds up the yards from every game. */
     public static int totalYards(int[] yards) {
         int total = 0;
-        for (int i = 1; i < yards.length; i++) {
+        for (int i = 0; i < yards.length; i++) {
             total = total + yards[i];
         }
         return total;
