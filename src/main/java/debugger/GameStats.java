@@ -21,6 +21,7 @@ public class GameStats {
     /** Adds up the yards from every game. */
     public static int totalYards(int[] yards) {
         int total = 0;
+        // for loop didn't start at the first number in yeards
         for (int i = 0; i < yards.length; i++) {
             total = total + yards[i];
         }
@@ -30,7 +31,8 @@ public class GameStats {
     /** The average yards per game, with decimals. */
     public static double averageYards(int[] yards) {
         int total = totalYards(yards);
-        double average = total / yards.length;
+        // Cast total to double so this is decimal division, not int division
+        double average = (double) total / yards.length;
         return average;
     }
 

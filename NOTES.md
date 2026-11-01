@@ -22,9 +22,9 @@ What it really printed: "First down after 3 plays." and "Yards to go at the end:
 
 ## Bug 2 — averageYards
 
-- **Where:**
-- **What the debugger showed:**
-- **The fix:**
+- **Where:** `averageYards`, the `double average = total / yards.length;` line.
+- **What the debugger showed:** `total` was 152 and `yards.length` was 6, but `average` was 25.0 right after the line ran. Both `total` and `yards.length` are `int`, so Java did integer division (152 / 6 = 25) and dropped the decimal part before storing it in the `double`.
+- **The fix:** I added a comment above the line saying what changed, and cast `total` to a double: `(double) total / yards.length`. Now it does decimal division and `average` is 25.333333333333332.
 
 ## Bug 3 — bestGame
 
